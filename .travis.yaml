@@ -2,7 +2,8 @@ sudo: required
 services:
   - docker
 before_install:
+  - openssl aes-256-cbc -K $encrypted_038847a4f507_key -iv $encrypted_038847a4f507_iv -in multi-k8s-386305-5891f8c6353b.json.enc -out multi-k8s-386305-5891f8c6353b.json -d
   - curl https://sdk.cloud.google.com | bash > dev/null;
   - source $HOME/google-cloud-sdk/path.bash.inc
   - gcloud component update kubectl
-  - gcloud auth activate-service-account --key-file service-account.json
+  - gcloud auth activate-service-account --key-file multi-k8s-386305-5891f8c6353b.json
